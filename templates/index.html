@@ -26,7 +26,8 @@
         </div>
         <div class="row">
             <div id="app">
-                <h1>[[ title ]]</h1>
+                <h1>[[ band.title ]]</h1>
+                <h3>[[ genero.genre ]]</h3>
             </div>
         </div>
         <!-- /.row -->
@@ -34,12 +35,30 @@
     </div>
 </section>
 {% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 <script>
     var app = new Vue({
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            title: "Hello World"
+            band: {},
+            genero: {}
+        },
+        mounted: function() {
+            this.fetchData();
+        },
+        methods: {
+            fetchData: function() {
+                this.$http.get('/teste').then(response => {
+                    //get body data
+                    this.band = response.body;
+                    this.genero = response.body;
+                }, response => {
+                    // error callback
+                    console.log('erro aqui');
+                });
+
+            }
         }
     })
 </script>

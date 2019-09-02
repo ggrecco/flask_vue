@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -10,7 +10,8 @@ def index():
 
 @app.route('/teste')
 def teste():
-    return 'teste funcionou'
+    meu_dicionario = {"title": "Nightwish", "genre": "MetalSynphonico"}
+    return jsonify(meu_dicionario)
 
 
 @app.route('/sobre')
