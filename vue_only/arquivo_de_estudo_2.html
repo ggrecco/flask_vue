@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<script src="http://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
     <!-- tag para não renderizar uma nova div  -->
@@ -39,9 +39,9 @@
     <div v-for="n in 10">div => {{ n }}</div>
 </div>
 <hr>
-
+<h1 v-show="logado">teste</h1>
 <!-- exibe no código fonte, ao contrario do v-if que some com os dado da DOM-->
-<footer v-show="logado">
+<footer v-show=logado>
     Desenvolvido para vc
 </footer>
 
@@ -54,24 +54,23 @@
             anonimo: false,
             ul: 'none',
             cores: ['vermleho', 'verde', 'amarelo', 'azul'],
-            pessoas: [
-                {
-                    nome: 'Karim',
-                    idade: 36,
-                    peso: '79'
-                }, {
-                    nome: 'Gustavo',
-                    idade: 34,
-                    peso: '84'
-                }, {
-                    nome: 'Darth',
-                    idade: 2,
-                    peso: '5'
-                }, {
-                    nome: 'Vader',
-                    idade: 2,
-                    peso: '8'
-                },]
+            pessoas: [{
+                nome: 'Karim',
+                idade: 36,
+                peso: '79'
+            }, {
+                nome: 'Gustavo',
+                idade: 34,
+                peso: '84'
+            }, {
+                nome: 'Darth',
+                idade: 2,
+                peso: '5'
+            }, {
+                nome: 'Vader',
+                idade: 2,
+                peso: '8'
+            }, ]
         }
     })
 </script>

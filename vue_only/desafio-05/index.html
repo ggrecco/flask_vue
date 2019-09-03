@@ -1,38 +1,40 @@
 <div id="desafio">
-  <!-- 1) Ligue o botão para alternar a exibição dos dois
+    <!-- 1) Ligue o botão para alternar a exibição dos dois
     parágrafos. Use ambos v-if e v-show e inspecione os elementos
     para ver a diferença -->
-  <h2>#01</h2>
+    <h2>#01</h2>
 
-  <template v-if="alterar">
+    <button @click="alterar = !alterar">{{ alterar ? 'Voltar': 'Alterar' }}</button>
+    <template v-if="alterar">
     <p>Você quer me ver ...</p>
   </template>
-  <p v-else>...ou eu</p>
-  <button @click="alterar = !alterar">{{ alterar ? 'Voltar': 'Alterar' }}</button>
-  <p>Você quer me ver ...</p>
-  <p>...ou eu</p>
+    <p v-else>...ou eu</p>
+    <p v-show="alterar">Você quer me ver ...</p>
+    <p v-show="!alterar">...ou eu</p>
 
 
-  <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
+    <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
     Imprima também o índice de cada elemento. -->
-  <h2>#02</h2>
-  <ul>
-    <li></li>
-  </ul>
+    <h2>#02</h2>
+    <ul>
+        <li v-for="(array, i) in array"> {{i + 1}} {{array}} </li>
+    </ul>
 
-  <!-- 3) Imprimir todos os pares de valor-chave do objeto a seguir:
+    <!-- 3) Imprimir todos os pares de valor-chave do objeto a seguir:
     {
 			titulo: 'O Senhor dos Anéis',
 			autor: 'J.R.R. Tolkiens',
 			volume: '3'
 		}
     Imprima também o índice de cada item. -->
-  <h2>#03</h2>
-  <ul>
-    <li></li>
-  </ul>
+    <h2>#03</h2>
+    <ul>
+        <li v-for="(valor, chave, index) in livros">
+            {{ index + 1 }}) {{ chave }} = {{ valor }}
+        </li>
+    </ul>
 
-  <!-- 4) Imprima o seguinte objeto (somente os valores) e
+    <!-- 4) Imprima o seguinte objeto (somente os valores) e
     também crie um loop aninhado para o array:
     {
 			id: 10,
@@ -40,12 +42,15 @@
 			notas: [7.67, 8.33, 6.98, 9.21]
 		}
     (dica: use v-for e v-if na resolução) -->
-  <h2>#04</h2>
-  <ul>
-    <li>
+    <h2>#04</h2>
+    <ul>
+        <li v-for="dado in aluno">
+            {{ dado }}
+            <div v-if="">
 
-    </li>
-  </ul>
+            </div>
+        </li>
+    </ul>
 </div>
-<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="app.js"></script>
